@@ -146,7 +146,10 @@
 				d3.event.stopPropagation();
 
 
-				function createNestedMenu(parent, root, depth = 0) {
+				function createNestedMenu(parent, root) {
+					if (arguments.length < 3) {
+						depth = 0;
+					}
 					var resolve = function (value) {
 						return utils.toFactory(value).call(root, data, index);
 					};
